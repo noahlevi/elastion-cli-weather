@@ -15,3 +15,11 @@ pub struct UniversalWeather {
     #[table(title = "max Temperature, ℃", justify = "Justify::Center")]
     pub temp_max: f32,    
 }
+
+#[derive(Table)]
+pub struct AvailableProviders {
+    #[table(title = "Name", justify = "Justify::Center")]
+    pub name: String,
+    #[table(title = "Website", justify = "Justify::Center")]
+    pub website: String,   
+}

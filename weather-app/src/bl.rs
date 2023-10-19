@@ -70,40 +70,51 @@ pub async fn get_open_weather_forecast(
 
             match_date_string(&d)?;
 
-            let date_time = NaiveDateTime::parse_from_str(&d, "%yyyy-%m-%d")?;
-            start_hour = date_time.timestamp_millis() as u128;
+            
             // Currently this option is not working, cause of all history data is payable
-            println!(" Currently this option is not working");
-            url = format!(
-                "{}/data/2.5/history/city?lat={}&lon={}&type=hour&start={}&cnt=1&appid={}",
-                OPEN_WEATHER_API_BASE.to_string(),
-                coordinate.lat,
-                coordinate.lon,
-                start_hour,
-                api_key
+            // SO I HAD TO COMMENT CODE BELOW
+            println!(
+                " Currently this option is not working for {} provider",
+                OPEN_WEATHER
             );
-            println!("{}", url);
-            let res = api_client
-                .get(url)
-                .send()
-                .await?
-                .json::<OpenWeatherForecastHistoryResponse>()
-                .await?;
-            match res.list.get(0) {
-                Some(forecast_data) => {
-                    let main = &forecast_data.main;
-                    let weather = UniversalWeather {
-                        feels_like: to_celsius(main.feels_like),
-                        temp: to_celsius(main.temp),
-                        pressure: main.pressure as f32,
-                        humidity: main.humidity as f32,
-                        temp_max: to_celsius(main.temp_max),
-                        temp_min: to_celsius(main.temp_min),
-                    };
-                    Ok(weather)
-                }
-                None => Err(CustomError::WeatherForecastNotFound),
-            }
+
+            // let date_time =
+            //     NaiveDateTime::parse_from_str(&format!("{} 12:00:00", d), "%YYYY-%mm-%d")?;
+            // start_hour = date_time.timestamp_millis() as u128;
+
+            // url = format!(
+            //     "{}/data/2.5/history/city?lat={}&lon={}&type=hour&start={}&cnt=1&appid={}",
+            //     OPEN_WEATHER_API_BASE.to_string(),
+            //     coordinate.lat,
+            //     coordinate.lon,
+            //     start_hour,
+            //     api_key
+            // );
+            // println!("{}", url);
+            // let res = api_client
+            //     .get(url)
+            //     .send()
+            //     .await?
+            //     .json::<OpenWeatherForecastHistoryResponse>()
+            //     .await?;
+            // match res.list.get(0) {
+            //     Some(forecast_data) => {
+            //         let main = &forecast_data.main;
+            //         let weather = UniversalWeather {
+            //             feels_like: to_celsius(main.feels_like),
+            //             temp: to_celsius(main.temp),
+            //             pressure: main.pressure as f32,
+            //             humidity: main.humidity as f32,
+            //             temp_max: to_celsius(main.temp_max),
+            //             temp_min: to_celsius(main.temp_min),
+            //         };
+            //         Ok(weather)
+            //     }
+            //     None => {
+            //         Err(CustomError::WeatherForecastNotFound)
+            //     }
+            // }
+            Ok(get_weather_api_forecast(Some(d), location).await?)
         }
         None => {
             url = format!(

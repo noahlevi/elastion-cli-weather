@@ -12,6 +12,7 @@ pub struct WeatherArgs {
 pub enum SubcommandType {
     Configuration(ConfigurationArgs),
     Get(GetForecastArgs),
+    Providers
 }
 
 #[derive(Debug, Args)]
@@ -22,6 +23,6 @@ pub struct ConfigurationArgs {
 #[derive(Debug, Args)]
 pub struct GetForecastArgs {
     pub address: String,
-    #[arg(help = "Correct date format is 'Y-m-d H:M:S'")]
+    #[arg(help = "Correct date format is 'Y-m-d'")]
     pub date: Option<String>,
 }

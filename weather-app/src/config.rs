@@ -10,6 +10,10 @@ pub const REDIS_GEO_COORDINATES_KEY: &str = "GEO_COORDINATES";
 
 pub const OPEN_WEATHER_API_BASE: &str = "http://api.openweathermap.org";
 
+pub const OPEN_WEATHER_WEBSITE: &str = "https://openweathermap.org/";
+
+pub const WEATHER_API_WEBSITE: &str = "https://www.weatherapi.com/";
+
 pub const WEATHER_API_BASE: &str = "http://api.weatherapi.com/v1";
 
 pub const FARINGATE_0: f32 = 273.0;
