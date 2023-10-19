@@ -59,6 +59,6 @@ Also, to see available providers, you can use:
 ```bash
 weather get <ADDRESS> [DATE]
 ```
-MUST corresponded patterns:<br>
+**MUST corresponded patterns**
 1) Address - `City,Country` or `City,CountryCode` without whitespaces
 2) Date - `Y-m-d` without whitespaces

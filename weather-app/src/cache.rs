@@ -37,11 +37,9 @@ pub fn set_current_provider_as_default() -> Result<(), CustomError> {
 pub fn get_cached_coordinate(location: &str) -> Result<Option<Coordinate>, CustomError> {
     let mut conn = get_connection()?;
     let json_string: String;
-    println!("BEFORE redis get cached coordinate");
     match conn.get(location.to_string()) {
         Ok(json_coord) => {
             json_string = json_coord;
-            println!("{}", json_string);
             let coordinate: Coordinate = serde_json::from_str(&json_string).unwrap();
             Ok(Some(coordinate))
         }

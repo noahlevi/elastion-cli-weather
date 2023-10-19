@@ -6,9 +6,9 @@ pub struct UniversalWeather {
     pub temp: f32,
     #[table(title = "Feels like, ℃", justify = "Justify::Center")]
     pub feels_like: f32,
-    #[table(title = "Pressure", justify = "Justify::Center")]
+    #[table(title = "Pressure, mm", justify = "Justify::Center")]
     pub pressure: f32,
-    #[table(title = "Humidity", justify = "Justify::Center")]
+    #[table(title = "Humidity, %", justify = "Justify::Center")]
     pub humidity: f32,
     #[table(title = "min Temperature, ℃", justify = "Justify::Center")]
     pub temp_min: f32,
