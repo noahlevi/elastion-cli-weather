@@ -54,8 +54,6 @@ Also, to see available providers, you can use:
 weather providers
 ```
 To get weather forecast from chosen provider you should execute:
-
-Also, to see available providers, you can use:
 ```bash
 weather get <ADDRESS> [DATE]
 ```
