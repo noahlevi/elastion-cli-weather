@@ -23,19 +23,7 @@ pub struct OpenWeatherForecastHistoryResponse {
 
 #[derive(Deserialize)]
 pub struct OpenWeatherForecastCurrentWeatherResponse {
-    // coord: Coordinate,
-    // weather: OpenWeatherForecastWeather,
-    // base: String,
     pub main: OpenWeatherForecastMain,
-    // visibility: u64,
-    // wind: OpenWeatherForecastWind,
-    // clouds: OpenWeatherForecastClouds,
-    // dt: u64,
-    // sys: OpenWeatherForecastSys,
-    // timezone: i32,
-    // id: u64,
-    // name: String,
-    // cod: u64,
 }
 
 #[derive(Deserialize)]
